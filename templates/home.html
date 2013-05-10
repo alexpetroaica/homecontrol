@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+{% block content %}
+  
+  <!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit" style="padding:20px;">
+		<div class="row-fluid">
+			<!--SYSTEM SUMMARY -->
+			<div class="span4 text-center" >
+				<ul class="nav nav-pills offset2">
+					<li class="active "><a href="">System Summary</a></li>
+				</ul>
+				<div class="span9 text-center">
+					<div id="ram-gauge" style="width:250px;height:160px;" ></div>
+				</div>
+				<div class="span9 text-center">
+					<div id="sys-temp-gauge" style="width:250px;height:160px;" ></div>
+				</div>
+				<div class="span9"><a class="btn btn-primary" href="#system">Go to System Info &raquo;</a></div>
+				
+			</div>
+			<!--LIGHTS SUMMARY -->
+			<div class="span4 text-center">
+				<ul class="nav nav-pills offset2">
+					<li class="active "><a href="">Lights Summary</a></li>
+				</ul>
+				<div class="span9"><a class="btn btn-primary" href="#lights">Go to Lights &raquo;</a></div>
+				
+			</div>
+			<!--HEATING SUMMARY -->
+			<div class="span4 text-center">
+				<ul class="nav nav-pills offset2">
+					<li class="active "><a href="">Heating Summary</a></li>
+				</ul>
+				<div class="span9 text-center">
+					<div id="room-temp-gauge" style="width:250px;height:160px;" ></div>
+				</div>
+				<div class="span9"><a class="btn btn-primary" href="#system">Go to Heating &raquo;</a></div>
+				
+			</div>
+			
+		</div>
+        
+      </div>
+
+      <!-- Example row of columns 
+      <div class="row-fluid">
+        <div class="span4">
+          <h2>System status</h2>
+          <p>View information about the current system status. {{ram[1]}}</p>
+          
+        </div>
+        <div class="span4">
+          <h2>Lights</h2>
+          <p>Adjust the LEDs and light bulbs in the house. <br></p>
+          <p><a class="btn btn-primary" href="#lights">Go to Lights &raquo;</a></p>
+       </div>
+        <div class="span4">
+          <h2>Heating</h2>
+          <p>Check graphics of the room temperature over time. </p>
+          <p><a class="btn btn-primary" href="#heating">Go to Heating &raquo;</a></p>
+        </div>
+      </div>-->
+
+      <hr>
+	  </div> <!-- /container -->
+	  <script>
+		var tempColors= new Array("#0088cc","#0088cc","#0088cc","#0088cc","#0088cc","#cad007","#cad007","#f9c401","#f9c401","#CC0033","#CC0033");
+		  var ram = new JustGage({
+			id: "ram-gauge", 
+			value: {{ram[1]}}, 
+			min: 0,
+			max: {{ram[0]}},
+			title: "RAM",
+			levelColorsGradient: true,
+			label: "Occupied"
+			
+		}); 
+			var cpu = new JustGage({
+			id: "sys-temp-gauge", 
+			value: {{sysTemp}}, 
+			min: 0,
+			max: 80,
+			title: "TEMP",
+			levelColors: tempColors,
+			levelColorsGradient: true,
+			label:"*C"
+			
+		}); 
+		
+		var room = new JustGage({
+			id: "room-temp-gauge", 
+			value: {{roomTemp}}, 
+			min: -10,
+			max: 45,
+			title: "ROOM",
+			levelColors: tempColors,
+			levelColorsGradient: true,
+			label:"*C"			
+		}); 
+	</script>
+{% endblock %}

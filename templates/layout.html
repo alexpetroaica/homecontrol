@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Control</title>  
+	
+	<script src="{{ url_for('static', filename='js/raphael.2.1.0.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/justgage.1.0.1.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/remote.js') }}"></script>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+	
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-responsive.css') }}">
+	<style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+	
+  </head>
+  <body>
+   
+     <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">Home Control</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li ><a href="/">Home</a></li>
+              <li><a href="#heating">Heating</a></li>
+              <li><a href="#lights">Lights</a></li>
+			  <li><a href="/remotes">Remotes</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shortcuts <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+				  <li class="divider"></li>
+				  <li class="nav-header">Lights</li>
+                  <li><a href="#">Turn lights on/off</a></li>                
+                  <li class="divider"></li>
+                  <li class="nav-header">Heating</li>
+                  <li><a href="#">Check Stats</a></li>
+                </ul>
+              </li>
+            </ul>
+            <div  class="pull-right" >
+              <p style="color:white;padding:10px 15px 0px;">You are controlling the house, {{username}}.<a href="/logout"> Log out</a></p>
+            </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+     
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+     <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://twitter.github.io/bootstrap/assets/js/jquery.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-transition.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-alert.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-modal.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-dropdown.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-scrollspy.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-tab.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-tooltip.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-popover.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-button.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-collapse.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-carousel.js"></script>
+    <script src="http://twitter.github.io/bootstrap/assets/js/bootstrap-typeahead.js"></script> 
+	
+	
+  </body>
+</html>

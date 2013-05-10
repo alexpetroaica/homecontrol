@@ -1,0 +1,162 @@
+{% extends "layout.html" %}
+{% block content %}   
+    <div class="span9">
+		<div class="tabbable ">
+			<ul class="nav nav-tabs">
+				<li class="nav-header">Devices</li>
+				{% for d in devices %}
+					<li id=""><a href="#{{ d['name'] }}" data-toggle="tab">{{ d['name'] }}</a></li>
+					
+					
+				{% endfor %}
+			</ul>
+			
+			<div class="tab-content">
+				{% for d in devices %}
+					<div class="tab-pane fade" id="{{ d['name'] }}">
+						<div data-role="page" data-title="Control" id="control" data-add-back-btn="true">
+							<div data-role="header" data-theme="b">
+								<h1>{{d.id}}</h1>
+								
+							</div>
+
+							<div data-role="content">
+								{% if d.name == "Bedroom-Ambiental" %}
+								
+									<div class="pull-left" style="width:300px;">
+										<img id="Image-Maps_3201304272309568" src="{{ url_for('static', filename='img/led-remote.jpg') }}" usemap="#Image-Maps_3201304272309568" border="0" width="300" height="667" alt="" />
+										<map id="_Image-Maps_3201304272309568" name="Image-Maps_3201304272309568">
+										<area onclick="clickedOp('{{ d.id }}','KEY_BRIGHTNESS_UP');" shape="rect" coords="26,26,76,76"  alt="Brightness UP" title="Brightness UP"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_BRIGHTNESS_DOWN');" shape="rect" coords="90,26,140,76"  alt="Brightness DOWN" title="Brightness DOWN"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_PAUSE');" shape="rect" coords="156,24,206,74"  alt="Pause" title="Pause"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_POWER');" shape="rect" coords="220,25,270,75"  alt="Power" title="Power"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_RED');" shape="rect" coords="27,81,77,131"  alt="Red" title="Red"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_RED1');" shape="rect" coords="28,136,78,186"  alt="Red 1" title="Red 1"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_RED2');" shape="rect" coords="27,190,77,240"  alt="Red 2" title="Red 2"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_RED3');" shape="rect" coords="27,245,77,295"  alt="Red 3" title="Red 3"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_RED4');" shape="rect" coords="26,299,76,349"  alt="Red 4" title="Red 4"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_GREEN');" shape="rect" coords="91,81,141,131"  alt="Green" title="Green"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_GREEN1');" shape="rect" coords="92,135,142,185"  alt="Green 1" title="Green 1"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_GREEN2');" shape="rect" coords="91,190,141,240"  alt="Green 2" title="Green 2"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_GREEN3');" shape="rect" coords="91,247,141,297"  alt="Green 3" title="Green 3"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_GREEN4');" shape="rect" coords="92,300,142,350"  alt="Green 4" title="Green 4"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_BLUE');" shape="rect" coords="158,83,208,133"  alt="Blue" title="Blue"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_BLUE1');" shape="rect" coords="157,136,207,186"  alt="Blue 1" title="Blue 1"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_BLUE2');" shape="rect" coords="156,190,206,240"  alt="Blue 2" title="Blue 2"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_BLUE3');" shape="rect" coords="156,246,206,296"  alt="Blue 3" title="Blue 3"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_BLUE4');" shape="rect" coords="157,301,207,351"  alt="Blue 4" title="Blue 4"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_WHITE');" shape="rect" coords="224,81,274,131"  alt="White" title="White"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_WHITE1');" shape="rect" coords="223,136,273,186"  alt="White 1" title="White 1"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_WHITE2');" shape="rect" coords="222,191,272,241"  alt="White 2" title="White 2"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_WHITE3');" shape="rect" coords="221,246,271,296"  alt="White 3" title="White 3"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_WHITE4');" shape="rect" coords="222,301,272,351"  alt="White 4" title="White 4"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_RED_UP');"shape="rect" coords="27,356,77,406"  alt="Red UP" title="Red UP"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_RED_DOWN');" shape="rect" coords="27,411,77,461"  alt="Red DOWN" title="Red DOWN"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_GREEN_UP');" shape="rect" coords="91,355,141,405"  alt="Green UP" title="Green UP"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_GREEN_DOWN');" shape="rect" coords="92,411,142,461"  alt="Green DOWN" title="Green DOWN"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_BLUE_UP');" shape="rect" coords="156,356,206,406"  alt="Blue UP" title="Blue UP"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_BLUE_DOWN');" shape="rect" coords="158,410,208,460"  alt="Blue DOWN" title="Blue DOWN"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_QUICK');" shape="rect" coords="223,356,273,406"  alt="Quick" title="Quick"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_SLOW');" shape="rect" coords="225,411,275,461"  alt="Slow" title="Slow"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_DIY1');" shape="rect" coords="26,467,76,517"  alt="DIY 1" title="DIY 1"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_DIY2');" shape="rect" coords="91,465,141,515"  alt="DIY 2" title="DIY 2"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_DIY3');" shape="rect" coords="157,465,207,515"  alt="DIY 3" title="DIY 3"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_AUTO');" shape="rect" coords="224,465,274,515"  alt="Auto" title="Auto"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_DIY4');" shape="rect" coords="29,520,79,570"  alt="DIY 4" title="DIY 4"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_DIY5');" shape="rect" coords="93,520,143,570"  alt="DIY 5" title="DIY 5"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_DIY6');" shape="rect" coords="157,521,207,571"  alt="DIY 6" title="DIY 6"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_FLASH');" shape="rect" coords="222,521,272,571"  alt="Flash" title="Flash"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_JUMP3');" shape="rect" coords="28,576,78,626"  alt="Jump 3" title="Jump 3"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_JUMP7');" shape="rect" coords="91,577,141,627"  alt="Jump 7" title="Jump 7"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_FADE3');" shape="rect" coords="159,577,209,627"  alt="Fade 3" title="Fade 3"    />
+										<area onclick="clickedOp('{{ d.id }}','KEY_FADE7');" shape="rect" coords="223,575,273,625"  alt="Fade 7" title="Fade 7"    />
+										</map>
+									</div>
+									<div class="span2 pull-left" >
+										<button class="btn " style="margin-top:5px;" onClick="dimBedroomLights()">Dim Lights</button>
+										<button class="btn " style="margin-top:5px;" onClick="fullPowerBedroomLights()">Full Power</button>
+									</div>
+								
+								{% else %}
+								<div id ="remote">
+									<svg width="100%">
+										<svg viewBox="0 0 400 600">
+											<!-- Backgrounds -->
+											<g opacity=".5" >
+											  <path d="M 0 200 A 200 200 0 1 1 400 200" fill="black" />
+											<rect x="00" y="200" width="400" height="400" fill="black" />
+											</g>					
+
+
+											<!-- Arrows -->					
+											<g opacity="1" >
+											  <path d="M 150,130 200,100 250,130 z" fill="white" stroke="gray" onclick="clickedOp('{{ d.id }}','KEY_UP');"/>
+											  <path d="M 150,270 200,300 250,270 z" fill="white" stroke="gray" onclick="clickedOp('{{ d.id }}','KEY_DOWN');"/>
+
+											  <text x="185" y="205" font-size="20" fill="white" onclick="clickedOp('{{ d.id }}','KEY_OK');" id="key_ok">OK</text>
+											  <path d="M 130,150 100,200 130,250 z" fill="white" stroke="gray" onclick="clickedOp('{{ d.id }}','KEY_LEFT');"/>
+											  <path d="M 270,150 300,200 270,250 z" fill="white" stroke="gray" onclick="clickedOp('{{ d.id }}','KEY_RIGHT');"/>
+											</g>
+
+											<!-- Controls-->
+											<circle cx="300" cy="88" r="30" fill="#990033" onclick="clickedOp('{{ d.id }}','KEY_CONNECT');" id="key_connect" />
+											  <text x="286" y="92" font-size="20" fill="white" onclick="clickedOp('{{ d.id }}','KEY_CONNECT');">ext</text>
+											<circle cx="200" cy="50" r="30" fill="#990033" onclick="clickedOp('{{ d.id }}','KEY_MENU');" id="key_menu" />
+											  <text x="180" y="55" font-size="18" fill="white" onclick="clickedOp('{{ d.id }}','KEY_MENU');">menu</text>
+											<circle cx="100" cy="88" r="30" fill="#990033" onclick="clickedOp('{{ d.id }}','KEY_INFO');" id="key_info" />
+											  <text x="86" y="92" font-size="18" fill="white" onclick="clickedOp('{{ d.id }}','KEY_INFO');">info</text>
+											<circle cx="56" cy="170" r="30" fill="#990033" onclick="clickedOp('{{ d.id }}','KEY_INFO');" id="key_info" />
+											  <text x="42" y="176" font-size="18" fill="white" onclick="clickedOp('{{ d.id }}','KEY_I');">sub</text>
+											<circle cx="346" cy="170" r="30" fill="#990033" onclick="clickedOp('{{ d.id }}','KEY_INFO');" id="key_info" />
+											  <text x="334" y="176" font-size="18" fill="white" onclick="clickedOp('{{ d.id }}','KEY_POWER');">pwr</text>
+
+
+											<!-- Colour Buttons -->
+											<circle cx="65"  cy="350" r="20" fill="red" onclick="clickedOp('{{ d.id }}','KEY_RED');" id="key_red" />
+											<circle cx="155" cy="350" r="20" fill="green" onclick="clickedOp('{{ d.id }}','KEY_GREEN');" id="key_green" />
+											<circle cx="245" cy="350" r="20" fill="yellow" onclick="clickedOp('{{ d.id }}','KEY_YELLOW');" id="key_yellow" />
+											<circle cx="335" cy="350" r="20" fill="blue" onclick="clickedOp('{{ d.id }}','KEY_BLUE');" id="key_blue" />
+
+
+
+
+											<!-- Channel-->
+											<circle cx="100" cy="460" r="30" fill="#990033" onclick="clickedOp('{{ d.id }}','KEY_CHANNELUP');" id="key_channelup" />
+											  <text x="91" y="467" font-size="20" fill="white" onclick="clickedOp('{{ d.id }}','KEY_CHANNELUP');">P+</text>
+											<circle cx="100" cy="540" r="30" fill="#990033" onclick="clickedOp('{{ d.id }}','KEY_CHANNELDOWN');" id="key_channeldown" />
+											  <text x="92" y="547" font-size="20" fill="white" onclick="clickedOp('{{ d.id }}','KEY_CHANNELDOWN');">P-</text>
+
+											<!-- Channel Arrows -->
+											<path d="M 140,470 160,450 180,470 z" fill="white" stroke="gray" onclick="clickedOp('{{ d.id }}','KEY_UP');"/>
+											<path d="M 140,530 160,550 180,530 z" fill="white" stroke="gray" onclick="clickedOp('{{ d.id }}','KEY_UP');"/>
+
+
+											<!-- Volume-->
+											<circle cx="300" cy="460" r="30" fill="#990033" onclick="clickedOp('{{ d.id }}','KEY_VOLUMEUP');" id="key_volumeup" />
+											  <text x="291" y="467" font-size="20" fill="white" onclick="clickedOp('{{ d.id }}','KEY_VOLUMEUP');">V+</text>
+											<circle cx="300" cy="540" r="30" fill="#990033" onclick="clickedOp('{{ d.id }}','KEY_VOLUMEDOWN');" id="key_volumedown" />
+											  <text x="292" y="547" font-size="20" fill="white" onclick="clickedOp('{{ d.id }}','KEY_VOLUMEDOWN');">V-</text>
+
+											<!-- Volume Bars -->
+											<rect x="200" y="450" height="10" width="60" fill="white" />
+											<rect x="200" y="470" height="10" width="50" fill="white" />
+											<rect x="200" y="490" height="10" width="40" fill="white" />
+											<rect x="200" y="510" height="10" width="30" fill="white" />
+											<rect x="200" y="530" height="10" width="20" fill="white" />
+											<rect x="200" y="550" height="10" width="10" fill="white" />
+										</svg>
+									
+									</svg>
+								</div>
+								{% endif %}
+							</div>
+						</div>   
+					</div>
+				{% endfor %}
+			</div>
+			
+			
+		</div>
+   </div>
+
+{% endblock %}
